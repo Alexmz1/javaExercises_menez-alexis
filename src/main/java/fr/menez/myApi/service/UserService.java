@@ -22,19 +22,32 @@ public class UserService {
     }
 
     // Méthode
+    // Exercice 1
     public User getUsers(int id){       // Nom de la méthode avec les paramètres a utiliser
-        for (User user : this.users) {       // Boucle foreach
-            if (user.getId() == id) {   // qui vérifie si un user possède un id
+        for (User user : this.users) {  // Boucle foreach
+            if (user.getId() == id) {   // Vérifie si un user possède un id
                 return user;            // Si oui = retourne les infos du user
             }
         }
         return null;                    // Si non = ne retourne rien
     }
 
+    // Exercice 2
     public User createUser(String name, int age){
-        User user = new User(users.size() + 1, name, age);
-        
-        users.add(user);
-        return user;
+        User user = new User(users.size() + 1, name, age);  // L'id du nouveau user s'auto incremente de +1 et on récupère le nom et prenom rentré
+        users.add(user);    // On ajoute le nouveau user à notre tableau ArrayList
+        return user;        // On retourne le user
+    }
+
+    // Exercice 3
+    public User updateUser(int id, String name, int age){
+        for (User user : this.users) {      // Boucle foreach
+            if (user.getId() == id) {       // Vérifie si un user possède un id
+                user.setName(name);         // Modifier la valeur name grace au setter setName
+                user.setAge(age);           // Modifier la valeur age grace au setter setAge
+                return user;                // On retourne le user
+            }
+        }
+        return null;
     }
 }
