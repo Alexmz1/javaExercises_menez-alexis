@@ -34,7 +34,7 @@ public class UserService {
 
     // Exercice 2
     public User createUser(String name, int age){
-        User user = new User(users.size() + 1, name, age);  // L'id du nouveau user s'auto incremente de +1 et on récupère le nom et prenom rentré
+        User user = new User(users.size() + 1, name, age);  // L'id du nouveau user s'auto incremente de +1 et on récupère le nom et prenom rentré (si l'id commence a 0, on a pas besoin d'ajouter le +1)
         users.add(user);    // On ajoute le nouveau user à notre tableau ArrayList
         return user;        // On retourne le user
     }
@@ -55,8 +55,8 @@ public class UserService {
     public User deleteUser(int id){
         for (User user : this.users) {              // Boucle foreach
             if (user.getId() == id) {               // Pour parcourir les id dans le tableau et vérifier s'il on en trouve un identique à celui demandé
-                int index = users.indexOf(user);    // On prend en paramètre "index" avec la méthode indexOf qui retourne l'index du user du tableau
-                return users.remove(index);         // On supprime le user associé à l'index
+                int index = this.users.indexOf(user);    // On prend en paramètre "index" avec la méthode indexOf qui retourne l'index du user du tableau
+                return this.users.remove(index);         // On supprime le user associé à l'index
             }
         }
         return null;
