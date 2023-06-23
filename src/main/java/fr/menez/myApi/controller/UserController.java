@@ -1,5 +1,6 @@
 package fr.menez.myApi.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -43,5 +44,11 @@ public class UserController {
         String name = body.getName();
         int age = body.getAge();
         return userService.updateUser(id, name, age);       // On retourne la méthode updateUser initialisée dans la classe UserService
+    }
+
+    // Exercice 4
+    @DeleteMapping("/user")
+    public User deleteUser(@RequestParam("id") int id){
+        return userService.deleteUser(id);      // On retourne la méthode deleteUser initialisée dans la classe UserService
     }
 }

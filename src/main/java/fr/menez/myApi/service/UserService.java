@@ -50,4 +50,15 @@ public class UserService {
         }
         return null;
     }
+
+    // Exercice 4
+    public User deleteUser(int id){
+        for (User user : this.users) {              // Boucle foreach
+            if (user.getId() == id) {               // Pour parcourir les id dans le tableau et vérifier s'il on en trouve un identique à celui demandé
+                int index = users.indexOf(user);    // On prend en paramètre "index" avec la méthode indexOf qui retourne l'index du user du tableau
+                return users.remove(index);         // On supprime le user associé à l'index
+            }
+        }
+        return null;
+    }
 }
