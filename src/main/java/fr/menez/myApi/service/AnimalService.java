@@ -1,6 +1,7 @@
 package fr.menez.myApi.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -65,7 +66,7 @@ public class AnimalService {
     }
 
     // méthode GET pour récupérer la liste complète des animaux
-    public Animal getAllAnimal() {
+    public List<Animal> getAllAnimal() {
         return animals;
     }
 }
