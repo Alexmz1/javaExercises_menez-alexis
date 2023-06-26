@@ -1,6 +1,6 @@
 package fr.menez.myApi.controller;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -80,8 +80,13 @@ public class AnimalController {
 
     // méthode GET pour récupérer la liste complète des animaux
     @GetMapping("/animals")
-    public List<Animal> getAllAnimal() {
-        List<Animal> animals = animalService.getAllAnimal();
-        return animals;
+    public ResponseEntity<ArrayList<Animal>> getAllAnimal() {
+        ArrayList<Animal> animals = animalService.getAllAnimal();
+        
+        if (animals != null) {
+            return ResponseEntity.ok(animals); 
+        } else {
+            return ResponseEntity.notFound().build(); 
+        }
     }
 }
